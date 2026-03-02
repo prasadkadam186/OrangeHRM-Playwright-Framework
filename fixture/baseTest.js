@@ -8,7 +8,7 @@ exports.test = base.test.extend({
         for(const data of testData)
         {
             await loginPage.navigateTo();
-            await loginPage.loginToApplication(data.username, data.password);
+            await loginPage.loginToApplicationValidUser(data.username, data.password);
             await use(page);
         }
     }

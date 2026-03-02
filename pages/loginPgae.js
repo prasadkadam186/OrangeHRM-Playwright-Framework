@@ -1,3 +1,5 @@
+const { expect } = require("@playwright/test");
+
 class LoginPage{
     constructor(page)
     {
@@ -5,7 +7,7 @@ class LoginPage{
         this.username="//input[@placeholder='Username']";
         this.password="//input[@placeholder='Password']";
         this.loginButton="//button[@type='submit']";
-        this.errorMsg=""
+        this.errorMsg="//div[@role='alert']//div//p";
     }
     
     async navigateTo()
