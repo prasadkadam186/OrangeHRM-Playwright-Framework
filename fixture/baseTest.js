@@ -1,16 +1,14 @@
-const base = require("@playwright/test")
+const {test:base} = require("@playwright/test")
 const LoginPage = require("../pages/loginPgae")
 const testData = require("../testData/loginData.json")
 
-exports.test = base.test.extend({
+exports.test = base.extend({
     loggedInPage: async ({page},use) => {
         const loginPage = new LoginPage(page)
-        for(const data of testData)
-        {
+         const data = testData[0];
             await loginPage.navigateTo();
-            await loginPage.loginToApplicationValidUser(data.username, data.password);
+            await loginPage.loginToApplication(data.username, data.password);
             await use(page);
-        }
     }
 })
 
